@@ -1,0 +1,217 @@
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: Lobster;
+    src: url('fonts/Lobster-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: GreatVibes;
+    src: url('fonts/GreatVibes-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Merriweather-Bold;
+    src: url('fonts/Merriweather-Bold.ttf') format('truetype');
+}
+
+@keyframes animate-content {
+    from {
+        opacity: 0;
+        transform: translateY(-10%);
+    }
+    to {
+        opacity: 100%;
+        transform: translateY(0);
+    }
+}
+
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url("https://source.unsplash.com/random/?landscape,book,night,city,countryside,library");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    color: white;
+    width: 90vw;
+    margin: 0 auto;
+    transition: background-image 1s ease-in-out;
+}
+
+main {
+    font-family: Lobster;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 5em;
+}
+
+.animate-reverse {
+    animation: animate-content 1s;
+    animation-direction: reverse;
+}
+
+.animate-forwards {
+    opacity: 0;
+    animation: animate-content 1s;
+    animation-delay: 1.2s;
+    animation-fill-mode: forwards; 
+}
+
+.animate-default {
+    opacity: 0;
+    animation: animate-content 0.5s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+
+.quote-head h1 {
+    font-size: 4rem;
+    font-family: Merriweather-Bold;
+}
+
+main hr {
+    width: 25%;
+    height: 0.1rem;
+    border-radius: 3px;
+    border: 1px solid #fff;
+    background-color: #fff;
+}
+
+.quote-body blockquote {
+    font-size: 3rem;
+}
+
+.quote-body blockquote::before {
+    content: open-quote;
+    font-size: larger;
+}
+
+.quote-body blockquote::after {
+    content: close-quote;
+    font-size: larger;
+}
+
+.quote-body span {
+    font-size: 3rem;
+    font-family: GreatVibes;
+}
+
+.quote-btn {
+    margin-top: 2em;
+}
+
+.quote-btn button {
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 25px;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.5s;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.quote-btn button:disabled {
+    color: rgba(0, 0, 0, 0.7)
+}
+
+.quote-btn button:hover, .quote-btn button:focus {
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.quote-btn button:first-child {
+    margin-right: 1em;
+}
+
+.quote-btn button:last-child img {
+    width: 1em;
+    margin-right: 0.5em;
+}
+
+@media (max-width: 767px) and (orientation: portrait) {
+    .quote-head h1 {
+        font-size: 3rem;
+    }
+    
+    .quote-body blockquote {
+        font-size: 2rem;
+    }
+
+    .quote-body span {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 767px) and (orientation: landscape) {
+    .quote-head h1 {
+        font-size: 2.5rem;
+    }
+    
+    .quote-body blockquote {
+        font-size: 1.7rem;
+    }
+
+    .quote-body span {
+        font-size: 1.7rem;
+    }
+
+    .quote-btn button {
+        font-size: 1rem;
+        width: 120px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 359px) {
+    .quote-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .quote-btn button:first-child {
+        margin-right: 0;
+        margin-bottom: 1em;
+    }
+}
+#search-btn {
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 25px;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.5s;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.search-bar {
+    margin-bottom: 2em; /* Add some bottom margin for spacing */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#search-author {
+    font-size: 1.2rem; /* Increase font size */
+    padding: 0.5em 1em; /* Add padding to make the input field larger */
+    border: none;
+    border-radius: 25px;
+    width: 300px; /* Set a specific width */
+    height: 50px;
+    margin-right: 1em; /* Add right margin for spacing */
+}
+
+#search-author::placeholder {
+    color: #aaa; /* Add a placeholder color */
+}
